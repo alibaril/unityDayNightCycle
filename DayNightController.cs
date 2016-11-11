@@ -2,6 +2,7 @@
 
 public class DayNightController : MonoBehaviour {
 
+    //global vars
     public Light sun;
     public float secondsInFullDay = 120f;
     [Range(0, 1)]
@@ -23,6 +24,7 @@ public class DayNightController : MonoBehaviour {
         nightSky = Resources.Load("nightSky") as Material;
     }
 
+    //updates the directional light as time of day changes
     void Update()
     {
         UpdateSun();
@@ -46,6 +48,7 @@ public class DayNightController : MonoBehaviour {
         }
     }
 
+    //transforms sun rotation and updates intensity
     void UpdateSun()
     {
         sun.transform.localRotation = Quaternion.Euler((currentTimeOfDay * 360f) - 90, 170, 0);
